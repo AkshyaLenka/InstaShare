@@ -32,13 +32,13 @@ public class UserController {
         return user;
     }
 
-
-    @PostMapping("/users")
-    public User createUser(@RequestBody @NotNull User user){
-        User saveUser = userService.registerUser(user);
-
-        return saveUser;
-    }
+//
+//    @PostMapping("/users")
+//    public User createUser(@RequestBody @NotNull User user){
+//        User saveUser = userService.registerUser(user);
+//
+//        return saveUser;
+//    }
 
     @PutMapping("/api/users/{userId}")
     public User updateUser(@RequestBody User updateUserRequest, @PathVariable Integer userId) throws Exception {
