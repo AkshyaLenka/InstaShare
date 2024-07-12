@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class jwtValidator extends OncePerRequestFilter {
+public class JwtValidator extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull FilterChain filterChain) throws ServletException, IOException {
@@ -32,7 +32,6 @@ public class jwtValidator extends OncePerRequestFilter {
                 throw new BadCredentialsException("Invalid Token...");
             }
         }
-
         filterChain.doFilter(request,response);
     }
 }
