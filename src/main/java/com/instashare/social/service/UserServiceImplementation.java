@@ -1,5 +1,6 @@
 package com.instashare.social.service;
 
+import com.instashare.social.config.JwtProvider;
 import com.instashare.social.model.User;
 import com.instashare.social.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,5 +88,12 @@ public class UserServiceImplementation implements UserService{
     @Override
     public List<User> searchUser(String query) {
         return userRepository.searchUser(query);
+    }
+
+    @Override
+    public User findUserByJwt(String jwt) {
+        String email = JwtProvider.getEmailFromJwtToken(jwt);
+        User user = userRepository.findByEmail(email);
+        return user;
     }
 }

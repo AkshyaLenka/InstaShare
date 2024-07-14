@@ -58,6 +58,12 @@ public class UserController {
         List<User> users = userService.searchUser(query);
         return users;
     }
+    @GetMapping("/api/users/profile")
+    public User getUserFromToken(@RequestHeader("Authorization") String jwt){
+        User user = userService.findUserByJwt(jwt);
+        user.setPassword(null);
+        return user;
+    }
 
 //    @DeleteMapping("users/{userId}")
 //    public String deleteUser(@PathVariable Integer userId) throws Exception {
