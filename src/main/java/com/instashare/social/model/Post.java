@@ -24,7 +24,7 @@ public class Post {
 
     private LocalDateTime createdAt;
 
-    @OneToMany
+    @ManyToMany
     private List<User> liked = new ArrayList<>();
 
     @OneToMany
